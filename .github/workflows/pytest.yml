@@ -33,4 +33,4 @@ jobs:
       env:
         PYTHONPATH: .
       run: |
-        pytest -s -v test/test_login.py --tb=short --browser_name=${{ matrix.browser }}
+        pytest -s -v test/test_login.py 
