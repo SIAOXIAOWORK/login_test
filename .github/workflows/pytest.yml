@@ -33,4 +33,4 @@ jobs:
       env:
         PYTHONPATH: .
       run: |
-        pytest -s -v test/test_login.py 
+        pytest -s -v --tb=short
