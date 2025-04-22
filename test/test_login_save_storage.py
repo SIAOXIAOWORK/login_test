@@ -4,7 +4,7 @@ from login_helper import Login
 
 def test_login_save_storage():
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
+        browser = playwright.chromium.launch()
         new_context = browser.new_context()
         new_page = new_context.new_page()
         page = Login(new_page)
