@@ -3,7 +3,7 @@ from login_helper import Login
 
 def test_login_with_storage_state():
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
+        browser = playwright.chromium.launch()
         new_context = browser.new_context(storage_state="storage_state.json")
         new_page = new_context.new_page()
         page = Login(new_page)
