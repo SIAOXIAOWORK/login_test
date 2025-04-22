@@ -10,7 +10,7 @@ import os
 def test_login_json(browser_page,username,password,expected,request):
         browser_name = browser_page["browser_name"]
         page = Login(browser_page["page"])
-        page.goto("http://localhost:8000/")
+        page.goto("https://siaoxiaowork.github.io/login_test/")
         page.input_username(username)
         page.input_password(password)
         page.click_login()

@@ -13,7 +13,7 @@ from utils import load_csv_data
 def test_login_save_storage(browser_page,username,password,expected):
     
         page = Login(browser_page)
-        page.goto("http://localhost:8000/")
+        page.goto("https://siaoxiaowork.github.io/login_test/")
         page.input_username(username)
         page.input_password(password)
         page.click_login()
