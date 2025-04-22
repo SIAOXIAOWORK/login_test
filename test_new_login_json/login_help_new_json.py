@@ -15,7 +15,8 @@ class Login():
         self.page.locator("[type=submit]").click()
 
     def is_login_successful(self):
-        message =  self.page.locator("[id=message]").text_content().strip()
+        locator = self.page.locator("#message")
+        message = locator.text_content(timeout=3000).strip()
         if message ==  "Login successful!":
             return True,message
         else :

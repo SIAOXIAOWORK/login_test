@@ -1,6 +1,6 @@
 import pytest
 from playwright.sync_api import sync_playwright
-from login_help import Login
+from login_help_json import Login
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
@@ -20,17 +20,10 @@ def test_login_save_storage(browser_page,username,password,expected,request):
         print(expected)
         result = page.login_result()
         
-        browser_name = page.context.browser._name
-        is_xfail = request.node.get_closest_marker("xfail") is not None 
 
-        if is_xfail:
-            os.makedirs("screenshots", exist_ok=True)
-            safe_username = username if username else "empty"
-            screenshot_path = f"screenshots/xfail_{browser_name}_{safe_username}.png"
-            browser_page.screenshot(path=screenshot_path)
 
         if result.success:
-            assert expected == ""  # 預期成功時 expected 是空的
+            assert expected == "Login successful!"  # 預期成功時 expected 是空的
         else:
             assert result.message == expected
 
