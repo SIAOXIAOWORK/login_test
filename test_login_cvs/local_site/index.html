@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 400px; margin: auto; }
+    .error { color: red; margin-top: 10px; }
+    .success { color: green; margin-top: 10px; }
+    input, button { margin: 5px 0; display: block; width: 100%; padding: 8px; }
+  </style>
+</head>
+<body>
+  <h2>Login Page</h2>
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+
+    <button type="submit">Login</button>
+    <div id="message"></div>
+  </form>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const username = form.username.value.trim();
+      const password = form.password.value.trim();
+      message.className = 'error';
+
+      if (!username) {
+        message.textContent = 'Username is required.';
+        return;
+      }
+
+      if (!password) {
+        message.textContent = 'Password is required.';
+        return;
+      }
+
+      if (username !== 'tomsmith') {
+        message.textContent = 'Invalid username.';
+        return;
+      }
+
+      if (password !== 'SuperSecretPassword!') {
+        message.textContent = 'Invalid password.';
+        return;
+      }
+
+      message.className = 'success';
+      message.textContent = 'Login successful!';
+    });
+  </script>
+</body>
+</html>

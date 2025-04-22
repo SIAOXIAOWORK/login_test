@@ -1,0 +1,6 @@
+username,password,expected
+tomsmith,SuperSecretPassword!,
+,SuperSecretPassword!,Username is required.
+tomsmith,,Password is required.
+tomsimit,SuperSecretPassword!,Invalid username.
+tomsmith,SuperSecretpassword,Invalid password.

@@ -1,0 +1,7 @@
+[
+    { "username": "tomsmith", "password": "SuperSecretPassword!", "expected": "Login successful!" },
+    { "username": "", "password": "SuperSecretPassword!", "expected": "Username is required.", "xfail" :true },
+    { "username": "tomsmith", "password": "", "expected": "Password is required." ,"xfail" :true},
+    { "username": "tomsimit", "password": "SuperSecretPassword!", "expected": "Invalid username." ,"xfail" :true},
+    { "username": "tomsmith", "password": "SuperSecretpassword", "expected": "Invalid password.","xfail" :true  }
+  ]
