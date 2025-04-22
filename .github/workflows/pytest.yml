@@ -1,0 +1,36 @@
+name: Run Playwright Login Tests
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        browser: [chromium, firefox]
+
+    steps:
+    - name: ⬇️ Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
+
+    - name: 📦 Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        python -m playwright install
+
+    - name: ▶️ Run pytest for ${{ matrix.browser }}
+      env:
+        PYTHONPATH: .
+      run: |
+        pytest -s -v test/test_login.py --tb=short --browser_name=${{ matrix.browser }}
